@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Favicon PNG</title>
+  <style>
+    .logo-favicon {
+      width: 64px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #04202a;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 32px;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin-bottom: 20px;
+    }
+    .logo-favicon span {
+      color: #16a34a;
+    }
+    button {
+      padding: 8px 16px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="logo-favicon">
+    F<span>D</span>
+  </div>
+  <button id="downloadBtn">Télécharger le PNG</button>
+
+  <script>
+    const downloadBtn = document.getElementById('downloadBtn');
+
+    downloadBtn.addEventListener('click', () => {
+      const canvas = document.createElement('canvas');
+      const size = 64;
+      canvas.width = size;
+      canvas.height = size;
+      const ctx = canvas.getContext('2d');
+
+      // Fond arrondi
+      const radius = 12;
+      ctx.fillStyle = "#04202a";
+      ctx.beginPath();
+      ctx.moveTo(radius, 0);
+      ctx.lineTo(size - radius, 0);
+      ctx.quadraticCurveTo(size, 0, size, radius);
+      ctx.lineTo(size, size - radius);
+      ctx.quadraticCurveTo(size, size, size - radius, size);
+      ctx.lineTo(radius, size);
+      ctx.quadraticCurveTo(0, size, 0, size - radius);
+      ctx.lineTo(0, radius);
+      ctx.quadraticCurveTo(0, 0, radius, 0);
+      ctx.closePath();
+      ctx.fill();
+
+      // Texte centré
+      ctx.font = "bold 32px Arial";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillStyle = "#ffffff";
+      ctx.fillText("F", size/2 - 8, size/2);
+      ctx.fillStyle = "#16a34a";
+      ctx.fillText("D", size/2 + 8, size/2);
+
+      // Télécharger
+      const link = document.createElement('a');
+      link.download = 'favicon.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    });
+  </script>
+
+</body>
+</html>

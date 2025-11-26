@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Fah Diarra — Portfolio</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="fd.png">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <h1 class="logo">F <span>D</span></h1>
+    <nav class="nav">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#videos">Videos</a>
+      <a href="#contact" class="cta">Contact</a>
+    </nav>
+    <button class="menu-btn" aria-label="open menu">☰</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- Hero -->
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <div class="hero-header">
+        <div class="profile-pic-inline">
+          <img src="images/profile-pic.png" alt="Photo of Fah Diarra">
+        </div>
+        <h2>Hello — I’m <strong>Fah Diarra</strong></h2>
+      </div>
+
+      <p>Full-stack web developer — PHP, JavaScript, HTML, CSS, and React JS.<br>
+         I build modern and high-performance interfaces.</p>
+
+      <div class="hero-cta">
+        <a href="#projects" class="btn">View my projects</a>
+        <a href="#contact" class="btn ghost">Contact me</a>
+      </div>
+
+      <ul class="hero-stats-inline">
+        <li>
+          <i class="fa-solid fa-diagram-project"></i>
+          <strong>4+</strong>
+          <span>Projects</span>
+        </li>
+        <li>
+          <i class="fa-solid fa-briefcase"></i>
+          <strong id="experience"></strong>
+          <span>Years of experience</span>
+        </li>
+        <li>
+          <i class="fa-solid fa-user-check"></i>
+          <strong>Trust</strong>
+          <span>Professional</span>
+        </li>
+        <li>
+          <i class="fa-solid fa-award"></i>
+          <strong>Quality</strong>
+          <span>Recognition</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Profile Modal -->
+<div id="profileModal" class="modal">
+  <div class="modal-content profile-modal-content">
+    <button class="close-profile-modal">&times;</button>
+    <div class="profile-modal-inner">
+      <img src="images/profile-pic.PNG" alt="Photo of Fah Diarra" class="profile-modal-img">
+      <h2>Fah Diarra</h2>
+      <p>Full-stack web developer, passionate about PHP, JavaScript, React, HTML, and CSS. Creative, motivated, and able to work solo or in a team depending on the project.</p>
+    </div>
+  </div>
+</div>
+<script>
+const profilePic = document.querySelector('.profile-pic-inline');
+const profileModal = document.getElementById('profileModal');
+const closeProfileModal = profileModal.querySelector('.close-profile-modal');
+
+profilePic.addEventListener('click', () => {
+  profileModal.style.display = 'flex';
+});
+closeProfileModal.addEventListener('click', () => {
+  profileModal.style.display = 'none';
+});
+window.addEventListener('click', e => {
+  if(e.target === profileModal){
+    profileModal.style.display = 'none';
+  }
+});
+</script>
+
+<script>
+  const startYear = 2022;
+  const currentYear = new Date().getFullYear();
+  const experienceYears = currentYear - startYear;
+  document.getElementById('experience').textContent = experienceYears + '+';
+</script>
+
+<!-- About -->
+<section id="about" class="container about">
+  <h3>About Me</h3>
+  <p>
+    I’m a developer passionate about creating fast and intuitive web applications.
+    I love building efficient server-side solutions with <strong>PHP</strong> and crafting dynamic client interfaces using
+    <strong>JavaScript</strong> and <strong>React</strong>, delivering complete and enjoyable experiences.
+  </p>
+
+  <div class="about-extra">
+    <div class="about-col">
+      <h4>Languages</h4>
+      <ul>
+        <li><i class="fa-solid fa-language"></i> French — Fluent</li>
+        <li><i class="fa-solid fa-language"></i> English — Intermediate (constantly improving)</li>
+      </ul>
+    </div>
+
+    <div class="about-col">
+      <h4>Professional Qualities</h4>
+      <ul>
+        <li><i class="fa-solid fa-bolt"></i> Learns very quickly and adapts easily</li>
+        <li><i class="fa-solid fa-screwdriver-wrench"></i> Autonomous, can also work independently</li>
+        <li><i class="fa-solid fa-users"></i> Team spirit, enjoys collaboration</li>
+        <li><i class="fa-solid fa-handshake"></i> Sociable, attentive, and open to teamwork</li>
+        <li><i class="fa-solid fa-lightbulb"></i> Curious and motivated to discover new technologies</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Skills -->
+<section id="skills" class="container skills">
+  <h3 class="competence-title">Skills</h3>
+  <div class="skills-grid">
+    <div class="skill"><h4><i class="fa-brands fa-php"></i> PHP</h4><p>Back-end, database management, RESTful APIs.</p></div>
+    <div class="skill"><h4><i class="fa-brands fa-js"></i> JavaScript</h4><p>DOM, ES6+, tooling, fetch/async.</p></div>
+    <div class="skill"><h4><i class="fa-brands fa-html5"></i> HTML &amp; <i class="fa-brands fa-css3-alt"></i> CSS</h4><p>Semantic structure, responsive layout, smooth animations.</p></div>
+    <div class="skill"><h4><i class="fa-brands fa-react"></i> React JS</h4><p>Components, hooks, state management, SPA.</p></div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section id="projects" class="container projects">
+  <h3 class="projet-title-modern">
+    Projects
+    <span class="decoration circle1"></span>
+    <span class="decoration circle2"></span>
+    <span class="decoration line"></span>
+  </h3>
+
+  <!-- Project 1 -->
+  <article class="project-row">
+    <div class="project-thumb">
+      <img src="images/projectSite1.png" alt="Project 1 preview">
+    </div>
+    <div class="project-info">
+      <h4>Project 1 — Task Management</h4>
+      <p>
+        A full-stack app for daily task management.
+        Built with <strong>PHP (API)</strong> and <strong>React</strong> for the frontend,
+        featuring CRUD operations, secure authentication, and a MySQL database.
+      </p>
+      <div class="project-actions">
+        <a href="#" class="btnp primary"><i class="fa-solid fa-circle-info"></i> Demo</a>
+        <a href="#" class="btnp"><i class="fa-brands fa-github"></i> Source code</a>
+        <a href="codes/projet1.zip" class="btnp"><i class="fa-solid fa-download"></i> Download</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- Project 2 -->
+  <article class="project-row reverse">
+    <div class="project-thumb">
+      <img src="images/projectSite2.png" alt="Project 2 preview">
+    </div>
+    <div class="project-info">
+      <h4>Project 2 — Dynamic Blog</h4>
+      <p>
+        A modern blog built with <strong>PHP/MySQL</strong>, featuring a Markdown editor,
+        a search system, and full management of posts and users.
+      </p>
+      <div class="project-actions">
+        <a href="#" class="btnp primary"><i class="fa-solid fa-circle-info"></i> Demo</a>
+        <a href="#" class="btnp"><i class="fa-brands fa-github"></i> Source code</a>
+        <a href="codes/projet2.zip" class="btnp"><i class="fa-solid fa-download"></i> Download</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- Project 3 -->
+  <article class="project-row">
+    <div class="project-thumb">
+      <img src="images/projectSite3.png" alt="Project 3 preview">
+    </div>
+    <div class="project-info">
+      <h4>Project 3 — Interactive Portfolio</h4>
+      <p>
+        A responsive <strong>HTML/CSS</strong> portfolio with animated
+        <strong>JavaScript</strong> components to enhance user experience and present projects interactively.
+      </p>
+      <div class="project-actions">
+        <a href="#" class="btnp primary"><i class="fa-solid fa-circle-info"></i> Demo</a>
+        <a href="#" class="btnp"><i class="fa-brands fa-github"></i> Source code</a>
+        <a href="codes/projet3.zip" class="btnp"><i class="fa-solid fa-download"></i> Download</a>
+      </div>
+    </div>
+  </article>
+</section>
+
+<!-- Videos Slider -->
+<section id="videos" class="container videos">
+  <h3>Demo Videos</h3>
+  ...
+</section>
+
+
+<footer class="site-footer container">
+  <p>&copy; <span id="currentYear"></span> Fah Diarra — All rights reserved</p>
+</footer>
+<script>
+  document.getElementById('currentYear').textContent = new Date().getFullYear();
+</script>
